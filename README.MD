@@ -1,60 +1,71 @@
 # LearnTrack – Student & Course Management System (Core Java)
 
-## Status
-⚠️ **Work in Progress**  
-This project is currently under active development.  
-Core structure, packages, and entity models are set up.  
-Service logic and menu-driven flow are in progress.
+## About
 
----
+LearnTrack is a simple **console-based application** built using **Core Java** to manage students, courses, and enrollments.
 
-## Project Overview
-LearnTrack is a console-based Student & Course Management System built using Core Java.
-The goal of this project is to practice Java fundamentals, OOP principles, collections,
-exception handling, and clean layered architecture.
+I built this project to practice **Java fundamentals and OOP concepts**, and to understand how a small application can be structured cleanly without using frameworks or databases.
 
----
+## What I Practiced
+- Core Java basics
+- Object-Oriented Programming (encapsulation, inheritance, polymorphism)
+- Collections (`ArrayList`)
+- Custom exception handling
+- Layered application structure
+- Menu-driven console programs
 
-## Current Implementation
-✅ Project structure finalized  
-✅ Packages created as per design  
-✅ Entity classes designed  
-⬜ Repository layer – in progress  
-⬜ Service layer – in progress  
-⬜ Menu-driven UI – pending  
+## Features
+- Add and view students
+- Add and view courses
+- Enroll students into courses
+- View enrollments by student
+- Activate/deactivate entities instead of deleting them
 
----
-
-## Planned Features
-- Student management
-- Course management
-- Enrollment handling
-- Exception-based validation
-- Clean separation of concerns
-
----
 
 ## Project Structure
-src/com/airtribe/learntrack
+src/
+└── com/
+└── airtribe/
+└── learntrack/
 ├── Main.java
-├── entity/
-├── repository/
-├── service/
-├── util/
+│
+├── entity/ 
+│ ├── Person.java
+│ ├── Student.java
+│ ├── Course.java
+│ └── Enrollment.java
+│
+├── repository/ 
+│ ├── StudentRepository.java
+│ ├── CourseRepository.java
+│ └── EnrollmentRepository.java
+│
+├── service/ 
+│ ├── StudentService.java
+│ ├── CourseService.java
+│ └── EnrollmentService.java
+│
+├── util/ 
+│ ├── IdGenerator.java
+│ └── InputValidator.java
+│
 ├── exception/
-├── enums/
-└── constants/
+│ ├── EntityNotFoundException.java
+│ └── InvalidInputException.java
+│
+├── enums/ 
+│ ├── EnrollmentStatus.java
+│ └── CourseStatus.java
+│
+└── constants/ 
+├── MenuOptions.java
+└── AppConstants.java
 
-yaml
-Copy code
 
----
+## How to Run
+From the project root:
 
-## Class Diagram
-(Refer to planned class diagram in documentation)
+USE BASH:
 
----
-
-## Submission Notes
-This repository is submitted as part of the LearnTrack Core Java project.
-Remaining modules will be completed incrementally after submission.
+javac -d out $(find src -name "*.java")
+java -cp out com.airtribe.learntrack.Main
