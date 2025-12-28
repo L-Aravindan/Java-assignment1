@@ -23,43 +23,109 @@ I built this project to practice **Java fundamentals and OOP concepts**, and to 
 
 
 ## Project Structure
+
+```
 src/
 └── com/
-└── airtribe/
-└── learntrack/
-├── Main.java
-│
-├── entity/ 
-│ ├── Person.java
-│ ├── Student.java
-│ ├── Course.java
-│ └── Enrollment.java
-│
-├── repository/ 
-│ ├── StudentRepository.java
-│ ├── CourseRepository.java
-│ └── EnrollmentRepository.java
-│
-├── service/ 
-│ ├── StudentService.java
-│ ├── CourseService.java
-│ └── EnrollmentService.java
-│
-├── util/ 
-│ ├── IdGenerator.java
-│ └── InputValidator.java
-│
-├── exception/
-│ ├── EntityNotFoundException.java
-│ └── InvalidInputException.java
-│
-├── enums/ 
-│ ├── EnrollmentStatus.java
-│ └── CourseStatus.java
-│
-└── constants/ 
-├── MenuOptions.java
-└── AppConstants.java
+    └── airtribe/
+        └── learntrack/
+            ├── Main.java
+            │
+            ├── entity/
+            │   ├── Person.java
+            │   ├── Student.java
+            │   ├── Course.java
+            │   └── Enrollment.java
+            │
+            ├── repository/
+            │   ├── StudentRepository.java
+            │   ├── CourseRepository.java
+            │   └── EnrollmentRepository.java
+            │
+            ├── service/
+            │   ├── StudentService.java
+            │   ├── CourseService.java
+            │   └── EnrollmentService.java
+            │
+            ├── util/
+            │   ├── IdGenerator.java
+            │   └── InputValidator.java
+            │
+            ├── exception/
+            │   ├── EntityNotFoundException.java
+            │   └── InvalidInputException.java
+            │
+            ├── enums/
+            │   ├── EnrollmentStatus.java
+            │   └── CourseStatus.java
+            │
+            └── constants/
+                ├── MenuOptions.java
+                └── AppConstants.java
+```
+
+## CLASS DIAGRAM
+
+```
+
+                ┌──────────────────┐
+                │      Person      │
+                │──────────────────│
+                │ id               │
+                │ firstName        │
+                │ lastName         │
+                │ email            │
+                │──────────────────│
+                │ getDisplayName() │
+                └─────────▲────────┘
+                          │
+                     extends
+                          │
+                ┌──────────────────┐
+                │      Student     │
+                │──────────────────│
+                │ batch            │
+                │ active           │
+                │──────────────────│
+                │ getDisplayName() │
+                └──────────────────┘
+
+
+┌──────────────────┐        ┌──────────────────┐
+│      Course      │        │    Enrollment    │
+│──────────────────│        │──────────────────│
+│ id               │        │ id               │
+│ courseName       │        │ studentId        │
+│ description      │        │ courseId         │
+│ durationInWeeks  │        │ enrollmentDate   │
+│ status           │        │ status            │
+└──────────────────┘        └──────────────────┘
+
+
+Repositories (In-Memory)
+-----------------------
+StudentRepository
+- stores List<Student>
+
+CourseRepository
+- stores List<Course>
+
+EnrollmentRepository
+- stores List<Enrollment>
+
+
+Services (Business Logic)
+------------------------
+StudentService
+- uses StudentRepository
+
+CourseService
+- uses CourseRepository
+
+EnrollmentService
+- uses EnrollmentRepository
+
+```
 
 
 ## How to Run
