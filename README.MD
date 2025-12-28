@@ -1,3 +1,6 @@
+> Submission note: Initial structure submitted under time constraints.
+
+
 # LearnTrack – Student & Course Management System (Core Java)
 
 ## Status
