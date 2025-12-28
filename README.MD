@@ -64,6 +64,68 @@ src/
                 └── AppConstants.java
 ```
 
+##CLASS DIAGRAM
+
+```
+
+                ┌──────────────────┐
+                │      Person      │
+                │──────────────────│
+                │ id               │
+                │ firstName        │
+                │ lastName         │
+                │ email            │
+                │──────────────────│
+                │ getDisplayName() │
+                └─────────▲────────┘
+                          │
+                     extends
+                          │
+                ┌──────────────────┐
+                │      Student     │
+                │──────────────────│
+                │ batch            │
+                │ active           │
+                │──────────────────│
+                │ getDisplayName() │
+                └──────────────────┘
+
+
+┌──────────────────┐        ┌──────────────────┐
+│      Course      │        │    Enrollment    │
+│──────────────────│        │──────────────────│
+│ id               │        │ id               │
+│ courseName       │        │ studentId        │
+│ description      │        │ courseId         │
+│ durationInWeeks  │        │ enrollmentDate   │
+│ status           │        │ status            │
+└──────────────────┘        └──────────────────┘
+
+
+Repositories (In-Memory)
+-----------------------
+StudentRepository
+- stores List<Student>
+
+CourseRepository
+- stores List<Course>
+
+EnrollmentRepository
+- stores List<Enrollment>
+
+
+Services (Business Logic)
+------------------------
+StudentService
+- uses StudentRepository
+
+CourseService
+- uses CourseRepository
+
+EnrollmentService
+- uses EnrollmentRepository
+
+```
 
 
 ## How to Run
